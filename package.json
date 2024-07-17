@@ -1,6 +1,6 @@
 {
   "name": "cdk-multi-env",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "bin": {
     "cdk-multi-env": "bin/cdk-multi-env.js"
   },
