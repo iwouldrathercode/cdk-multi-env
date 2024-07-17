@@ -2,22 +2,32 @@
 
 ## Steps to deploy this CDK project
 
+This project uses ✨ magic of git-hooks and npm scripts 🪄
+
 - After git clone, run npm install to install dependencies
-  - This will add the necessary git-hooks
+- Project will automatically run `postinstall` script of npm and add a githook to take action on branch change
+- Contents of the git-hook can be customized by editing post-checkout file
+  - If edited again run `npm run setup-hooks`
 - The project uses git branches to manage environments
 - It needs a unique .env file per git branch - (ex: .env.<branch-name>)
-- So every time you have different branches, you can add a corresponding aws sandbox or testing account
-  - If you want to deploy to your `dev` aws account, you only have to `git checkout <dev branch>` and `cdk deploy`
-  - If you want to deploy to your `prod` aws account, you only have to `git checkout <main / master branch>` and `cdk deploy`
+- Currently there are two branches - main and develop
+- Duplicate the .env.example file as .env.main and .env.develop
+- Modify the `CDK_DEFAULT_ACCOUNT` and `CDK_DEFAULT_REGION` values
+
+## Usage
+
+So every time you have different branches, you can add a corresponding aws sandbox or prod account
+
+- If you want to deploy to your `dev` aws account, you only have to `git checkout <dev branch>` and `cdk deploy`
+- If you want to deploy to your `prod` aws account, you only have to `git checkout <main branch>` and `cdk deploy`
 
 ## Steps to deploy to a sandbox aws account
 
-- Update `cdk.json` file regarding new env
 - Populate the relevant values in `.env.develop`
 - `git checkout develop`
   - This will automatically run a git hook to source appropriate `.env.develop` file and sets env vars.
-- cdk bootstrap (skip if already completed)
-- cdk deploy
+- cdk bootstrap --profile $AWS_PROFILE (skip if already completed)
+- cdk deploy --profile $AWS_PROFILE
 
 ## Example contents inside an .env.<branch-name> file
 

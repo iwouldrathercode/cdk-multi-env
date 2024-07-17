@@ -7,14 +7,13 @@ import { CdkMultiEnvStack } from '../lib/cdk-multi-env-stack';
 
 const app = new App();
 
-// Get current branch and load necessary env file
+// Evaluate current git branch and resolve the appropriate env file
 const currentBranch = git.branchName();
-const environments = app.node.tryGetContext('environments');
-const environment = environments.find((e: any) => e.branch === currentBranch);
-const environmentConfigurationFile = environment.config;
-dotenv.config({ path: environmentConfigurationFile });
+const envFile = `.env.${currentBranch}`;
+dotenv.config({ path: envFile });
 
 new CdkMultiEnvStack(app, 'CdkMultiEnvStack', {
   env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION },
-  tags: { branch: currentBranch, environment: environment.name }
+  tags: { branch: process.env.BRANCH ?? "dev", environment: process.env.ENVIRONMENT ?? "dev" }
 });
+
