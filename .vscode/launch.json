@@ -4,8 +4,18 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CDK Debugger",
+      "name": "Debug develop branch",
       "skipFiles": ["<node_internals>/**"],
+      "envFile": "${workspaceFolder}/.env.develop",
+      "runtimeArgs": ["-r", "./node_modules/ts-node/register/transpile-only"],
+      "args": ["${workspaceFolder}/bin/survey-results-api.ts"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug main branch",
+      "skipFiles": ["<node_internals>/**"],
+      "envFile": "${workspaceFolder}/.env.main",
       "runtimeArgs": ["-r", "./node_modules/ts-node/register/transpile-only"],
       "args": ["${workspaceFolder}/bin/survey-results-api.ts"]
     }
