@@ -12,6 +12,8 @@ const currentBranch = git.branchName();
 const envFile = `.env.${currentBranch}`;
 dotenv.config({ path: envFile });
 
+console.log('Using account:', process.env.ENVIRONMENT);
+
 new CdkMultiEnvStack(app, 'CdkMultiEnvStack', {
   env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION },
   tags: { branch: process.env.BRANCH ?? "dev", environment: process.env.ENVIRONMENT ?? "dev" }
