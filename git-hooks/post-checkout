@@ -1,8 +1,0 @@
-#!/bin/sh
-
-# Get the branch that was checked out
-BRANCH=$(git rev-parse --abbrev-ref HEAD)
-
-echo "Checked out $BRANCH branch."
-source .env.$BRANCH
-echo "Profile set to $AWS_PROFILE."
