@@ -29,9 +29,12 @@ git checkout develop && npm run deploy:dev
 git checkout main && npm run deploy:prod
 ```
 
-## Example contents inside an .env.<branch-name> file
+## Example contents inside an .env.develop file
 
 ```
+BRANCH=develop
+ENVIRONMENT=dev
+
 AWS_PROFILE = "burner"
 CDK_DEFAULT_REGION = "ap-southeast-2"
 CDK_DEFAULT_ACCOUNT = 123456789101
