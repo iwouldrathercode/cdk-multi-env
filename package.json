@@ -9,8 +9,8 @@
     "test": "jest",
     "build": "tsc",
     "watch": "tsc -w",
-    "setup-hooks": "./setup-hooks.sh",
-    "postinstall": "npm run setup-hooks"
+    "deploy:dev": "source .env.develop && cdk deploy --profile $AWS_PROFILE",
+    "deploy:prod": "source .env.main && cdk deploy --profile $AWS_PROFILE"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
