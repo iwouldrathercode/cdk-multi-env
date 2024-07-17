@@ -8,7 +8,7 @@
       "skipFiles": ["<node_internals>/**"],
       "envFile": "${workspaceFolder}/.env.develop",
       "runtimeArgs": ["-r", "./node_modules/ts-node/register/transpile-only"],
-      "args": ["${workspaceFolder}/bin/survey-results-api.ts"]
+      "args": ["${workspaceFolder}/bin/cdk-multi-env.ts"]
     },
     {
       "type": "node",
@@ -17,7 +17,7 @@
       "skipFiles": ["<node_internals>/**"],
       "envFile": "${workspaceFolder}/.env.main",
       "runtimeArgs": ["-r", "./node_modules/ts-node/register/transpile-only"],
-      "args": ["${workspaceFolder}/bin/survey-results-api.ts"]
+      "args": ["${workspaceFolder}/bin/cdk-multi-env.ts"]
     }
   ]
 }
