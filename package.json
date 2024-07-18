@@ -11,7 +11,9 @@
     "watch": "tsc -w",
     "deploy": "cross-env-shell bash ./deploy.sh",
     "deploy:dev": "source .env.develop && cdk deploy --profile $AWS_PROFILE",
-    "deploy:prod": "source .env.main && cdk deploy --profile $AWS_PROFILE"
+    "deploy:prod": "source .env.main && cdk deploy --profile $AWS_PROFILE",
+    "destroy:dev": "source .env.develop && cdk destroy --profile $AWS_PROFILE",
+    "destroy:prod": "source .env.main && cdk destroy --profile $AWS_PROFILE"
   },
   "dependencies": {
     "@rkesters/git-agent": "^1.0.2",

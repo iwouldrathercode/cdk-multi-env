@@ -1,9 +1,24 @@
 import * as dotenv from 'dotenv';
 import git from "@rkesters/git-agent";
 
-export function loadCurrentEnvironment() {
-  // Evaluate current git branch and resolve the appropriate env file
-  const currentBranch = git.branchName();
-  const envFile = `.env.${currentBranch}`;
-  dotenv.config({ path: envFile });
+export class InfrastructureContext {
+  private currentBranch: string;
+  private envFile: string;
+
+  constructor() {
+    this.currentBranch = git.branchName();
+    this.envFile = `.env.${this.currentBranch}`;
+  }
+
+  public load() {
+    dotenv.config({ path: this.envFile });
+    console.log(`Git Branch ${this.currentBranch}`);
+    console.log(`Loading configuration from ${this.envFile}`);
+    console.log(`Git Branch ${process.env.BRANCH}`);
+    console.log(`Environment ${process.env.ENVIRONMENT}`);
+    console.log(`Profile ${process.env.AWS_PROFILE}`);
+    console.log(`Region ${process.env.CDK_DEFAULT_REGION}`);
+    console.log(`Deploying to ${process.env.CDK_DEFAULT_ACCOUNT}`);
+
+  }
 }

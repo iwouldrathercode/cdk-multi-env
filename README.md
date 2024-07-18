@@ -1,4 +1,4 @@
-# CDK multi config. typeScript project
+# CDK multi config. TypeScript project
 
 ## Steps to deploy this CDK project
 
