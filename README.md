@@ -43,8 +43,14 @@ CDK_DEFAULT_ACCOUNT = 123456789101
 ## Useful commands
 
 - `npm run build` compile typescript to js
+- `npm run setup-hooks` to update changes done to the git-hook/postinstall file
 - `npm run watch` watch for changes and compile
 - `npm run test` perform the jest unit tests
-- `npx cdk deploy` deploy this stack to your default AWS account/region
 - `npx cdk diff` compare deployed stack with current state
 - `npx cdk synth` emits the synthesized CloudFormation template
+
+## Deploy commands
+
+- `npm run deploy` Automatically picks the branch name and approprirate .env file and deploys
+- `npm run deploy:dev` Deploy this stack to your `sandbox` env AWS account/region
+- `npm run deploy:prod` Deploy this stack to your `prod` env AWS account/region
