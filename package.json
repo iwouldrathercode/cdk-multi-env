@@ -11,10 +11,11 @@
     "watch": "tsc -w",
     "deploy": "cross-env-shell bash ./deploy.sh",
     "destroy": "cross-env-shell bash ./destroy.sh",
-    "deploy:dev": "source .env.develop && cdk deploy --profile $AWS_PROFILE",
-    "deploy:prod": "source .env.main && cdk deploy --profile $AWS_PROFILE",
-    "destroy:dev": "source .env.develop && cdk destroy --profile $AWS_PROFILE",
-    "destroy:prod": "source .env.main && cdk destroy --profile $AWS_PROFILE"
+    "bootstrap": "cross-env-shell bash ./bootstrap.sh",
+    "deploy:dev": "source .env.develop && cdk deploy --profile $AWS_PROFILE --region $DEFAULT_REGION",
+    "deploy:prod": "source .env.main && cdk deploy --profile $AWS_PROFILE --region $DEFAULT_REGION",
+    "destroy:dev": "source .env.develop && cdk destroy --profile $AWS_PROFILE --region $DEFAULT_REGION",
+    "destroy:prod": "source .env.main && cdk destroy --profile $AWS_PROFILE --region $DEFAULT_REGION"
   },
   "dependencies": {
     "@rkesters/git-agent": "^1.0.2",
