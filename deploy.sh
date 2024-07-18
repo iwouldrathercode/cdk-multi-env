@@ -13,4 +13,4 @@ else
 fi
 
 # Deploy using CDK with the sourced AWS profile
-cdk deploy --profile $AWS_PROFILE
+cdk deploy --profile $AWS_PROFILE --region $DEFAULT_REGION

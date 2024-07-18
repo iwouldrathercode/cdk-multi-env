@@ -12,5 +12,5 @@ else
   exit 1
 fi
 
-# Destroy the stack
-cdk destroy --profile $AWS_PROFILE --region $DEFAULT_REGION
+# Bootstrap the CDK environment
+cdk bootstrap --profile $AWS_PROFILE --region $DEFAULT_REGION
