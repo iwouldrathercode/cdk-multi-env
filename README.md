@@ -9,7 +9,7 @@ This project uses ✨ magic of git-branch and npm scripts 🪄
 - It needs a unique .env file per git branch - (ex: .env.<branch-name>)
 - Currently there are two branches - main and develop
 - Duplicate the .env.example file as .env.main and .env.develop
-- Modify the `CDK_DEFAULT_ACCOUNT` and `CDK_DEFAULT_REGION` values
+- Modify the `DEFAULT_ACCOUNT` and `DEFAULT_REGION` values
 
 ## Usage
 
@@ -36,8 +36,8 @@ BRANCH=develop
 ENVIRONMENT=dev
 
 AWS_PROFILE = "burner"
-CDK_DEFAULT_REGION = "ap-southeast-2"
-CDK_DEFAULT_ACCOUNT = 123456789101
+DEFAULT_REGION = "ap-southeast-2"
+DEFAULT_ACCOUNT = 123456789101
 ```
 
 ## Useful commands

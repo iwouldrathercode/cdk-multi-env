@@ -9,7 +9,7 @@ environment.load();
 
 const app = new App();
 new CdkMultiEnvStack(app, 'CdkMultiEnvStack', {
-  env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION },
+  env: { account: process.env.DEFAULT_ACCOUNT, region: process.env.DEFAULT_REGION },
   tags: { branch: process.env.BRANCH ?? "dev", environment: process.env.ENVIRONMENT ?? "dev" }
 });
 
