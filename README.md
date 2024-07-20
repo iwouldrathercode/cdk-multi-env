@@ -19,14 +19,14 @@ So every time you have different branches, you can add a corresponding aws sandb
 - Populate the relevant values in `.env.develop`
 
 ```sh
-git checkout develop && npm run deploy:dev
+git checkout develop && npm run deploy
 ```
 
 - If you want to deploy to your `prod` aws account, you only have to
 - Populate the relevant values in `.env.main`
 
 ```sh
-git checkout main && npm run deploy:prod
+git checkout main && npm run deploy
 ```
 
 ## Example contents inside an .env.develop file
@@ -51,6 +51,6 @@ DEFAULT_ACCOUNT = 123456789101
 
 ## Deploy commands
 
+- `npm run bootstrap` Automatically picks the branch name and approprirate .env file and bootstraps
 - `npm run deploy` Automatically picks the branch name and approprirate .env file and deploys
-- `npm run deploy:dev` Deploy this stack to your `sandbox` env AWS account/region
-- `npm run deploy:prod` Deploy this stack to your `prod` env AWS account/region
+- `npm run destroy` Automatically picks the branch name and approprirate .env file and destroys
